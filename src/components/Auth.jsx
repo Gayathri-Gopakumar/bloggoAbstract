@@ -7,6 +7,7 @@ import { authActions } from '../store';
 import { useNavigate } from 'react-router-dom';
 import { auth, googleProvider } from '../firebase'; // Import Firebase auth and provider
 import { signInWithPopup } from 'firebase/auth';
+import googleImg from '../assets/google-logo.webp'
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -104,7 +105,7 @@ const Auth = () => {
             variant="outlined"
             sx={{ borderRadius: 3, marginTop: 3, background: "#fff", color: "#000" }}
           >
-            Sign in with Google
+            Sign in with <span><img style={{height:'40px',width:'70px',padding:'5px'}} src={googleImg} alt="" /></span>
           </Button>
         </Box>
       </form>
