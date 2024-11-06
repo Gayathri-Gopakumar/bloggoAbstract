@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Box,Typography,InputLabel, TextField,Button} from '@mui/material'
+import { BASE_URL } from '../baseURL';
 
 
 const BlogDetail = () => {
@@ -14,7 +15,7 @@ const BlogDetail = () => {
 
   const fetchDetails = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/blogs/${id}`);
+      const res = await axios.get(`${BASE_URL}/api/blogs/${id}`);
       const data = res.data;
       return data; 
     } catch (err) {
@@ -33,7 +34,7 @@ const BlogDetail = () => {
   }, [id]);
 
   const sendRequest=async()=>{
-    const res=await axios.put(`http://localhost:3000/api/blogs/update/${id}`,{
+    const res=await axios.put(`${BASE_URL}/api/blogs/update/${id}`,{
       title:inputs.title,
       description:inputs.description
     }).catch(err=>console.log(err))

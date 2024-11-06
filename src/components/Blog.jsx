@@ -4,6 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from '../baseURL';
 
 const Blog = ({ title, description, imageURL, userName, isUser, id }) => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Blog = ({ title, description, imageURL, userName, isUser, id }) => {
   };
 
   const deleteReq=async()=>{
-    const res=await axios.delete(`http://localhost:3000/api/blogs/${id}`).catch(err=>console.log(err))
+    const res=await axios.delete(`${BASE_URL}/api/blogs/${id}`).catch(err=>console.log(err))
     const data=await res.data
     return data
   }

@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { auth, googleProvider } from '../firebase'; // Import Firebase auth and provider
 import { signInWithPopup } from 'firebase/auth';
 import googleImg from '../assets/google-logo.webp'
+import { BASE_URL } from '../baseURL';
+
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -27,7 +29,7 @@ const Auth = () => {
 
   const sendRequest = async (type = 'login') => {
     try {
-      const res = await axios.post(`http://localhost:3000/api/users/${type}`, {
+      const res = await axios.post(`${BASE_URL}/api/users/${type}`, {
         name: inputs.name,
         email: inputs.email,
         password: inputs.password
